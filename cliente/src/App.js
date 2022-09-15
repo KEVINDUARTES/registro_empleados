@@ -5,65 +5,27 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ListaEmpleados from './ListaEmpleados';
 import AgregarEmpleado from './AgregarEmpleado';
 import EditarEmpleado from './EditarEmpleado';
-import Landing from './Landing';
+import Login from './Login';
+import Register from './Register';
 
 function App() {
   return (
-    <div className='App'>
-      <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
-        <div className='container'>
-          <a className='navbar-brand' href='#'>
-            Empleados de la empresa
-          </a>
-          <button
-            className='navbar-toggler'
-            type='button'
-            data-bs-toggle='collapse'
-            data-bs-target='#navbarSupportedContent'
-            aria-controls='navbarSupportedContent'
-            aria-expanded='false'
-            aria-label='Toggle navigation'
-          >
-            <span className='navbar-toggler-icon'></span>
-          </button>
-          <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-            <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-              <li className='nav-item'>
-                <a className='nav-link active' aria-current='page' href='/'>
-                  Inicio
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='agregarempleado'>
-                  Agregar Empleado
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className='App'>
         <Routes>
-          <Route path='/' element={<Landing />} exact></Route>
+          <Route exact path='/' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/listaempleados' element={<ListaEmpleados />} />
+          <Route path='/agregarempleado' element={<AgregarEmpleado />} />
           <Route
-            path='/ListaEmpleados'
-            element={<ListaEmpleados />}
             exact
-          ></Route>
-          <Route
-            path='/agregarempleado'
-            element={<AgregarEmpleado />}
-            exact
-          ></Route>
-          <Route
             path='/editarempleado/:idempleado'
             element={<EditarEmpleado />}
-            exact
-          ></Route>
+          />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
+    // </div>
   );
 }
 
