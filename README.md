@@ -17,4 +17,16 @@ Para instalar las dependencias debes ejecutar el comando npm install.
 Para correr el servidor debes ejecutar el script/comando npm start.
 Este servidor corre en el puerto:5000
 
--Tecnologias utilizadas: Javascript, react, express, css, html, boostrap, mongoose, mongodb.
+-Tecnologias utilizadas: Node.js, React.js, Express, Css, Html, Boostrap, Mongoose, Mongodb.
+
+Manejo de rutas :
+
+USUARIO
+Post:'http://localhost:5000/api/usuario/aunthenticate'
+Post: 'http://localhost:5000/api/usuario/register'
+
+EMPLEADO
+Post: 'http://localhost:5000/api/empleado/agregarempleado'
+Put: 'http://localhost:5000/api/empleado/actualizarempleado'
+Delete: 'http://localhost:5000/api/empleado/borrarempleado'
+Get: 'http://localhost:5000/api/empleado/obtenerempleados'

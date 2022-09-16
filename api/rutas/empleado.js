@@ -24,7 +24,6 @@ router.post('/agregarempleado', (req, res) => {
     telefono: req.body.telefono,
     area: req.body.area,
     puesto: req.body.puesto,
-    idempleado: req.body.idempleado,
   });
   nuevoempleado.save(function (err) {
     //el metodo save nos permite guardar en la db
