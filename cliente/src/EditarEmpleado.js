@@ -8,15 +8,19 @@ function EditarEmpleado() {
     //nuevo objeto
 
     const actualizarempleado = {
+      _id: params._id,
       nombre: nombre,
       email: email,
+      area: area,
+      puesto: puesto,
       telefono: telefono,
-      idempleado: params.idempleado,
     };
 
-    //accion editar con axios
     axios
-      .put('/api/empleado/actualizarempleado', actualizarempleado)
+      .put(
+        'http://localhost:5000/api/empleado/actualizarempleado',
+        actualizarempleado
+      )
       .then((res) => {
         //alert(res.data)
         Swal.fire('Editar empleado', 'El empleado fue editado');
@@ -28,22 +32,17 @@ function EditarEmpleado() {
   }
 
   const params = useParams();
-
   const [nombre, setNombre] = useState('');
-
-  const [apellido, setApellido] = useState('');
-
   const [telefono, setTelefono] = useState('');
   const [area, setArea] = useState('');
   const [puesto, setPuesto] = useState('');
   const [email, setEmail] = useState('');
-  const [contraseña, setContraseña] = useState('');
   const navegar = useNavigate();
 
   useEffect(() => {
     axios
-      .post('/api/empleado/obtenerdataempleado', {
-        idempleado: params.idempleado,
+      .get('http://localhost:5000/api/empleado/obtenerdataempleado', {
+        idempleado: params._id,
       })
       .then((res) => {
         console.log(res.data[0]);
@@ -113,19 +112,7 @@ function EditarEmpleado() {
                 }}
               ></input>
             </div>
-            <div className='mb-3'>
-              <label htmlFor='nombre' className='form-label'>
-                Apellido
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                value={apellido}
-                onChange={(e) => {
-                  setApellido(e.target.value);
-                }}
-              ></input>
-            </div>
+
             <div className='mb-3'>
               <label htmlFor='nombre' className='form-label'>
                 Puesto
@@ -178,19 +165,7 @@ function EditarEmpleado() {
                 }}
               ></input>
             </div>
-            <div className='mb-3'>
-              <label htmlFor='email' className='form-label'>
-                Contraseña
-              </label>
-              <input
-                type='email'
-                className='form-control'
-                value={contraseña}
-                onChange={(e) => {
-                  setContraseña(e.target.value);
-                }}
-              ></input>
-            </div>
+
             <button onClick={editarEmpleado} className='btn btn-success'>
               Editar empleado
             </button>

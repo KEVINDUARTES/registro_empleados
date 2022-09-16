@@ -15,11 +15,13 @@ function EmpleadoIndividual({ empleado }) {
   }, []);
 
   //Function para borrar usuario
-  function borrarempleado(idempleado) {
-    console.log(idempleado);
+  function borrarempleado(_id) {
+    // console.log(idempleado);
 
     axios
-      .post('/api/empleado/borrarempleado', { idempleado: idempleado })
+      .delete('http://localhost:5000/api/empleado/borrarempleado', {
+        idempleado: _id,
+      })
       .then((res) => {
         console.log(res.data);
         //alert(res.data)
@@ -41,14 +43,14 @@ function EmpleadoIndividual({ empleado }) {
             <li className='list-group-item'>{empleado.email}</li>
             <li className='list-group-item'>{empleado.telefono}</li>
           </ul>
-          <Link to={`/editarempleado/${empleado.idempleado}`}>
+          <Link to={`/editarempleado/${empleado._id}`}>
             <li className='btn btn-success ml-auto'>Editar</li>{' '}
           </Link>
           &nbsp;
           <button
             className='btn btn-danger'
             onClick={() => {
-              borrarempleado(empleado.idempleado);
+              borrarempleado(empleado._id);
             }}
           >
             Borrar

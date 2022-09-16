@@ -10,7 +10,6 @@ const schemaEmpleado = new schema({
   area: String,
   puesto: String,
   telefono: String,
-  idempleado: String,
 });
 
 const ModeloEmpleado = mongoose.model('empleados', schemaEmpleado);
@@ -47,23 +46,20 @@ router.get('/obtenerempleados', (req, res) => {
   });
 });
 
-router.post('/obtenerdataempleado', (req, res) => {
-  ModeloEmpleado.find(
-    { idempleado: req.body.idempleado },
-    function (docs, err) {
-      if (!err) {
-        res.send(docs);
-      } else {
-        res.send(err);
-      }
+router.get('/obtenerdataempleado', (req, res) => {
+  ModeloEmpleado.find({ _id: req.body.idempleado }, function (docs, err) {
+    if (!err) {
+      res.send(docs);
+    } else {
+      res.send(err);
     }
-  );
+  });
 });
 
 //editar empleados
 router.put('/actualizarempleado', (req, res) => {
   ModeloEmpleado.findOneAndUpdate(
-    { idempleado: req.body.idempleado },
+    { _id: req.body._id },
     {
       nombre: req.body.nombre,
       email: req.body.email,
@@ -82,17 +78,12 @@ router.put('/actualizarempleado', (req, res) => {
 });
 
 //borrar empleados
-router.post('/borrarempleado', (req, res) => {
-  ModeloEmpleado.findOneAndDelete(
-    { idempleado: req.body.idempleado },
-    (err) => {
-      if (!err) {
-        res.send('Empleado borrado correctamente');
-      } else {
-        res.send(err);
-      }
+router.delete('/borrarempleado', (req, res) => {
+  ModeloEmpleado.findOneAndDelete({ idempleado: req.body._id }, (err) => {
+    if (!err) {
+      res.send('Empleado borrado correctamente');
+    } else {
+      res.send(err);
     }
-  );
+  });
 });
-
-

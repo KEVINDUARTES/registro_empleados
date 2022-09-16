@@ -19,7 +19,7 @@ function App() {
           <Route path='/agregarempleado' element={<AgregarEmpleado />} />
           <Route
             exact
-            path='/editarempleado/:idempleado'
+            path='/editarempleado/:_id'
             element={<EditarEmpleado />}
           />
         </Routes>

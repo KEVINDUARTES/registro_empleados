@@ -6,7 +6,7 @@ function ListaEmpleados() {
   const [dataempleados, setDataempleados] = useState([]);
   useEffect(() => {
     axios
-      .get('api/empleado/obtenerempleados')
+      .get('http://localhost:5000/api/empleado/obtenerempleados')
       .then((res) => {
         console.log(res.data);
         setDataempleados(res.data);

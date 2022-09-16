@@ -24,7 +24,7 @@ function AgregarEmpleado() {
     };
     console.log(empleado);
     axios
-      .post('/api/empleado/agregarempleado', empleado)
+      .post('http://localhost:5000/api/empleado/agregarempleado', empleado)
       .then((res) => {
         //alert(res.data)
         Swal.fire('Agregar empleado', 'El empleado fue agregado');
