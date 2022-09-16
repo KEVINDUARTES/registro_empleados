@@ -41,9 +41,10 @@ function EditarEmpleado() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/empleado/obtenerdataempleado', {
-        idempleado: params._id,
-      })
+      .get(
+        `http://localhost:5000/api/empleado/obtenerdataempleado/${params._id}`
+      )
+
       .then((res) => {
         console.log(res.data[0]);
 
@@ -51,6 +52,8 @@ function EditarEmpleado() {
         setNombre(dataempleado.nombre);
         setEmail(dataempleado.email);
         setTelefono(dataempleado.telefono);
+        setArea(dataempleado.area);
+        setPuesto(dataempleado.puesto);
       });
   }, []);
   return (

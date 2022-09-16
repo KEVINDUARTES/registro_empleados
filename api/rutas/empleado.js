@@ -45,8 +45,9 @@ router.get('/obtenerempleados', (req, res) => {
   });
 });
 
-router.get('/obtenerdataempleado', (req, res) => {
-  ModeloEmpleado.find({ _id: req.body.idempleado }, function (docs, err) {
+router.get('/obtenerdataempleado/:_id', (req, res) => {
+  let { _id } = req.params;
+  ModeloEmpleado.find({ _id: _id }, function (docs, err) {
     if (!err) {
       res.send(docs);
     } else {

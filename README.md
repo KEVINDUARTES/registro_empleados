@@ -22,7 +22,7 @@ Este servidor corre en el puerto:5000
 Manejo de rutas :
 
 USUARIO
-Post:'http://localhost:5000/api/usuario/aunthenticate'
+Post:'http://localhost:5000/api/usuario/aunthenticate'  
 Post: 'http://localhost:5000/api/usuario/register'
 
 EMPLEADO
