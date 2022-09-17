@@ -9,10 +9,9 @@ app.post('/register', (req, res) => {
 
   user.save((err) => {
     if (err) {
-      console.log(err);
-      res.status(500).send('ERROR AL REGISTRAR AL USUARIO');
+      return res.status(500).send('ERROR AL REGISTRARSE ');
     } else {
-      res.status(200).send('USUARIO REGISTRADO');
+      return res.status(200).send('USUARIO REGISTRADO');
     }
   });
 });
