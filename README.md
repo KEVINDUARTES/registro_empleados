@@ -22,11 +22,11 @@ Este servidor corre en el puerto:5000
 Manejo de rutas :
 
 USUARIO  
-Post:'http://localhost:5000/api/usuario/aunthenticate' ejemplo para probar en postman:{"nombre": "", "apellido": "", "email": "", "contraseña": ""}
-Post: 'http://localhost:5000/api/usuario/register' ejemplo para probar en postman: { "email": "", "contraseña": ""}
+Post:'http://localhost:5000/api/usuario/aunthenticate'
+Post: 'http://localhost:5000/api/usuario/register'
 
 EMPLEADO
-Post: 'http://localhost:5000/api/empleado/agregarempleado' ejemplo para probar en postman: {"nombre": "", "area": "", "email": "", "puesto": "" , "telefono": ""}
-Put: 'http://localhost:5000/api/empleado/actualizarempleado'ejemplo para probar en postman {"nombre": "", "email": "", "area": "", "puesto": "" , "telefono": ""}
-Delete: 'http://localhost:5000/api/empleado/borrarempleado' ejemplo para probar en postman
+Post: 'http://localhost:5000/api/empleado/agregarempleado'
+Put: 'http://localhost:5000/api/empleado/actualizarempleado'
+Delete: 'http://localhost:5000/api/empleado/borrarempleado'
 Get: 'http://localhost:5000/api/empleado/obtenerempleados'
